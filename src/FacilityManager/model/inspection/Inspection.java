@@ -1,4 +1,4 @@
-package FacilityManager.model.maintenance;
+package FacilityManager.model.inspection;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,15 +11,13 @@ public class Inspection {
     public String issue;
     public Boolean inspection_passed;
 
-    public Inspection(String name, LocalDate date, LocalTime time, String issue, Boolean success){
-        this.inspection_time = time;
-        this.inspection_date = date;
-        this.inspector_name = name;
-        this.inspection_request_date = LocalDate.now();
-        this.inspection_request_time = LocalTime.now();
-        this.issue = issue;
-        this.inspection_passed = success;
-    }
+    public void setInspector_name(String name){this.inspector_name = name;}
+    public void setInspection_date(LocalDate date){this.inspection_date = date;}
+    public void setInspection_request_date(LocalDate date){this.inspection_request_date = date;}
+    public void setInspection_time(LocalTime time){this.inspection_time = time;}
+    public void setInspection_request_time(LocalTime time){this.inspection_request_time = time;}
+    public void setIssue(String issue){this.issue = issue;}
+    public void setInspection_passed(Boolean passed){this.inspection_passed = passed;}
 
     public String getInspection_inspector_name(){ return this.inspector_name; }
 
@@ -36,11 +34,6 @@ public class Inspection {
     public Boolean getInspection_passed() { return this.inspection_passed; }
 
 
-    public boolean isInUseDuringInterval() {
-        if(this.getInspection_date() == LocalDate.now()){
-            return true;
-        }
-        return false;
-    }
+
 
 }

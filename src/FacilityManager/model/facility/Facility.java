@@ -1,6 +1,6 @@
 package FacilityManager.model.facility;
 import FacilityManager.model.maintenance.Maintenance;
-import FacilityManager.model.maintenance.Inspection;
+import FacilityManager.model.inspection.Inspection;
 import FacilityManager.model.usage.Usage;
 import FacilityManager.model.usage.useFunction;
 
