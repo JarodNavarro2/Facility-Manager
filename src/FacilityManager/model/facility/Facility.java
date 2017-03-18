@@ -1,9 +1,7 @@
 package FacilityManager.model.facility;
 
 import FacilityManager.model.inspection.Inspection;
-import FacilityManager.model.maintenance.Maintenance;
 import FacilityManager.model.usage.Usage;
-import FacilityManager.model.usage.useFunction;
 
 import java.util.List;
 
@@ -24,8 +22,9 @@ public interface Facility {
     public boolean getOccupancy(); //works -- DK 03.18
     public void setOccupancy(boolean occupancy); //works -- DK 03.18
 
-    public void getFacilityInspections(); //TODO
-    public void createInspection(); //TODO
+    public void setInspections(Inspection inspection);
+
+    public Inspection getInspection();
 
     public void getFacilityInformation(); //works -- DK 03.18
     public void getFacilityRoomsInfo(); //works -- DK 03.18

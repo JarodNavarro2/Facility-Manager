@@ -1,6 +1,5 @@
 package FacilityManager.model.usage;
 import FacilityManager.model.facility.Facility;
-import FacilityManager.model.facility.Room;
 import FacilityManager.model.inspection.*;
 
 
@@ -41,20 +40,20 @@ public class useFunction extends Usage {
     }
 
 
-    public boolean listInspections(ArrayList<inspectionFunction> inspectionList) {
+    public boolean listInspections(ArrayList<InspectionImpl> inspectionImplList) {
         int counter = 1;
         boolean success_token;
-        if (inspectionList.size() > 0) {
-            for (inspectionFunction inspection : inspectionList) {
-                System.out.println("Listing information for inspection #" + counter + " out of " + inspectionList.size() + ".");
-                System.out.println("Inspector name: " + inspection.getInspection_inspector_name());
-                System.out.println("Inspection created on: " + inspection.getInspection_request_date() +
-                        " " + inspection.getInspection_request_time());
-                System.out.println("Inspection scheduled for: " + inspection.getInspection_date() +
-                        " " + inspection.getInspection_time());
-                System.out.println("Inspection reason: " + inspection.getInspection_issue());
-                System.out.println("Inspection passed (true/false): " + inspection.getInspection_passed().toString());
-                System.out.println("Facility in use?: "+ inspection.isInUseDuringInterval());
+        if (inspectionImplList.size() > 0) {
+            for (InspectionImpl inspectionImpl : inspectionImplList) {
+                System.out.println("Listing information for inspectionImpl #" + counter + " out of " + inspectionImplList.size() + ".");
+                System.out.println("Inspector name: " + inspectionImpl.getInspection_inspector_name());
+                System.out.println("InspectionImpl created on: " + inspectionImpl.getInspection_request_date() +
+                        " " + inspectionImpl.getInspection_request_time());
+                System.out.println("InspectionImpl scheduled for: " + inspectionImpl.getInspection_date() +
+                        " " + inspectionImpl.getInspection_time());
+                System.out.println("InspectionImpl reason: " + inspectionImpl.getInspection_issue());
+                System.out.println("InspectionImpl passed (true/false): " + inspectionImpl.getInspection_passed().toString());
+                System.out.println("Facility in use?: "+ inspectionImpl.isInUseDuringInterval());
             }
             success_token = true;
         } else {

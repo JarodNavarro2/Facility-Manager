@@ -25,13 +25,23 @@
         </property>
     </bean>
 
+
+    <bean id="inspections" class = "FacilityManager.model.inspection.InspectionImpl" scope="prototype"></bean>
+
+
+
     <bean id="facility1" class="FacilityManager.model.facility.FacilityImpl" scope="prototype">
         <property name = "rooms" >
            <list>
                <ref bean = "room" ></ref>
            </list>
         </property>
+        <property name="inspections" ref = "inspections">
+        </property>
+
             </bean>
+
+
 
 
 

@@ -1,17 +1,12 @@
 package FacilityManager.model.facility;
-import FacilityManager.model.maintenance.Maintenance;
 import FacilityManager.model.inspection.Inspection;
+import FacilityManager.model.maintenance.Maintenance;
 import FacilityManager.model.usage.Usage;
 import FacilityManager.model.usage.useFunction;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import java.util.List;
-
-import java.util.Scanner;
 
 public class FacilityImpl implements Facility {
     public String name;
@@ -21,7 +16,7 @@ public class FacilityImpl implements Facility {
     public boolean occupancy;
     public ArrayList<Maintenance> maintenance_log = new ArrayList<Maintenance>();
     public List<Room> rooms ;
-    public ArrayList<Inspection> inspection_log = new ArrayList<Inspection>();
+    public Inspection inspection;
 
 
     // Specific methods for dependency injection
@@ -32,6 +27,14 @@ public class FacilityImpl implements Facility {
     public List<Room> getRooms(){
        return this.rooms;
     }
+
+    public void setInspections(Inspection inspection){this.inspection = inspection;}
+
+    public Inspection getInspection(){return this.inspection;}
+
+
+
+
 
 
     public useFunction facilityUsage = new useFunction();
@@ -112,15 +115,9 @@ public class FacilityImpl implements Facility {
     public void setOccupancy(boolean occupancy){
         this.occupancy = occupancy;
     }
-    public void getFacilityInspections(){
-       // this.facilityUsage.listInspections(inspection_log);
-    }
 
-    public void createInspection(){
-        //TODO - setters/getters implementation in main
-        Inspection newInspection = new Inspection();
-        inspection_log.add(newInspection);
-    }
+
+
 
     public void addRoom(Room room){
         rooms.add(room);
