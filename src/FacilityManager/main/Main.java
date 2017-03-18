@@ -15,6 +15,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		//TODO - changeRoomInfo based on Room setters/getters
 
 	}
 

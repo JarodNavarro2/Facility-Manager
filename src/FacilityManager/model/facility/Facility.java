@@ -16,7 +16,6 @@ public interface Facility {
     public boolean createARoom(String name, int capacity, int max_capacity, int number);
     public boolean roomNumberCheck(int number);
     public boolean bulldozeARoom(int number);
-    public boolean changeRoomInfo(int number);
     public void setStatus(String input_status);
     public boolean getOccupancy();
     public String getStatus();
