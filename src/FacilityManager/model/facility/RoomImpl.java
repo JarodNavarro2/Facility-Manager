@@ -1,10 +1,12 @@
 package FacilityManager.model.facility;
+import java.util.Vector;
 
 public class RoomImpl implements Room {
     public String name;
     public int room_max_capacity;
     public int room_current_capacity;
     public int room_number;
+    public Vector<Integer> room_numbers = new Vector();
 
     public void setName(String name){
         this.name = name;
@@ -44,7 +46,23 @@ public class RoomImpl implements Room {
         return this.room_max_capacity;
     }
 
-    public void setRoom_number(int room_number) { this.room_number = room_number; } //roomNumberCheck called BEFORE calling setter in main
+    public void setRoom_number(int room_number) {
+        boolean token = true;
+        int length = room_numbers.size();
+        for (Integer num : room_numbers) {
+            if (num == room_number) {
+                System.out.println("Unable to set room #, because room #" + room_current_capacity + " already is taken.");
+                System.out.println("System default setting to room # to (desired room # +1). Room # is " + (room_number + 1));
+                token = false;
+            }
+        }
+        if (token) {
+            this.room_number = room_number;
+            room_numbers.add(room_number);
+        } else {
+            setRoom_number(room_number + 1);
+        }
+    }
 
     public int getRoomNumber() { return this.room_number; }
 

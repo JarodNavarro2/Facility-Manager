@@ -12,13 +12,25 @@ public class Main {
 		System.out.println("***************** Application Context instantiated! ******************");
 
 		Facility facility1 = (Facility) context.getBean("facility1");
-		Room room = facility1.getRoom();
-		room.setRoom_number(2);
-		room.setRoom_max_capacity(100);
-		room.setName("Testing Room");
-		room.setRoom_current_capacity(29);
+		facility1.setFacilityName("House");
+
+
+		Room room1 = (Room) context.getBean("room");
+		room1.setName("Living Room");
+		room1.setRoom_max_capacity(6);
+		room1.setRoom_current_capacity(2);
+		room1.setRoom_number(1);
+		facility1.setRoom(room1);
+
+		Room room2 = (Room) context.getBean("room");
+		room2.setName("Kitchen");
+		room2.setRoom_max_capacity(4);
+		room2.setRoom_current_capacity(1);
+		room2.setRoom_number(2);
+		facility1.setRoom(room2);
 
 		facility1.getFacilityInformation();
+		facility1.getFacilityRoomsInfo();
 
 
 

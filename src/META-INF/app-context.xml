@@ -10,10 +10,12 @@
 
     <context:component-scan base-package="src.FacilityManager" />
 
+    <bean id="room" class="FacilityManager.model.facility.RoomImpl" scope ="prototype"></bean>
+
     <bean id="facility1" class="FacilityManager.model.facility.FacilityImpl" scope="prototype">
         <property name = "room" ref = "room" />
             </bean>
-    <bean id="room" class="FacilityManager.model.facility.Room" scope = "prototype"></bean>
+
 
 
 

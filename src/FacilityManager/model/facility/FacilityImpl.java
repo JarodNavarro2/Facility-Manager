@@ -16,34 +16,28 @@ public class FacilityImpl implements Facility {
     public int current_capacity;
     public String status;
     public boolean occupancy;
-
-    private Room room;
-
-    public void setRoom(Room room){
-        this.room = room;
-    }
-
-    public Room getRoom(){
-        return this.room;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public ArrayList<Maintenance> maintenance_log = new ArrayList<Maintenance>();
     public ArrayList<Room> rooms = new ArrayList<Room>();
     public ArrayList<Inspection> inspection_log = new ArrayList<Inspection>();
+
+    public void setRoom(Room room){
+        rooms.add(room);
+    }
+
+    public Room getRoom(int room_number){
+        Room temp_room = new RoomImpl();
+        //getting Room based on room_number within the facility
+        for (Room room : rooms){
+            if (room.getRoomNumber() == room_number){
+                temp_room = room;
+            }
+            else {
+                System.out.println("Room #" + room_number + " is not a valid room # for facility " + this.name);
+            }
+        }
+        return temp_room;
+    }
+
 
     public useFunction facilityUsage = new useFunction();
 
@@ -54,9 +48,9 @@ public class FacilityImpl implements Facility {
 
 
 
-    public String getFacilityInformation(){
-        return "Name: " + this.name + "\nMaximum Capacity: "+this.maximum_capacity + "\nCurrent Capacity: " + this.current_capacity + "\nStatus: " +
-                this.status + "\nOccupancy: "+ getOccupancy();
+    public void getFacilityInformation(){
+        System.out.println("Name: " + this.getFacilityName() + "\nMaximum Capacity: "+ this.getMaxCapacity() + "\nCurrent Capacity: " + this.getCurrentCapacity() + "\nStatus: " +
+                this.getStatus() + "\nOccupancy: "+ this.getOccupancy());
     }
 
     public String getFacilityName(){
@@ -69,45 +63,24 @@ public class FacilityImpl implements Facility {
 
     /* DARYA: I deleted setMaxCapacity, but implemented Carl's calculations here, since the only way
     * to set max capacity is by setting the max capacity for all the rooms */
+
     public int getMaxCapacity(){
-        this.maximum_capacity = 0; //resting max capacity
-        for(Room room: this.rooms){
-            this.maximum_capacity = room.getRoomMaxCapacity() + maximum_capacity;
+        this.maximum_capacity = 0;
+        for (Room room:rooms){
+            maximum_capacity += room.getRoomMaxCapacity();
         }
-        return this.maximum_capacity;
+        return maximum_capacity;
     }
 
     /* DARYA: I deleted setCurrentCapacity, but implemented Carl's calculations here, since the only way
         * to set current capacity is by setting the current capacity for all the rooms */
     public int getCurrentCapacity(){
         this.current_capacity = 0;
-        for(Room rooms : this.rooms){
+        for(Room rooms : rooms){
             //Need to add a function that will getRoomCapacity and not use the variable from rooms
-            this.current_capacity = rooms.room_current_capacity + this.current_capacity;
+            this.current_capacity = rooms.getRoom_current_capacity() + this.current_capacity;
         }
         return this.current_capacity;
-    }
-
-
-    public boolean createARoom(String name, int capacity, int max_capacity, int number) { //boolean return T if successful (only way to fail if room # check fails
-        Room room = new Room();
-        room.setName(name);
-        room.setRoom_current_capacity(capacity);
-        room.setRoom_max_capacity(max_capacity);
-        room.setRoom_number(number);
-        return true;
-    }
-
-    public boolean roomNumberCheck(int number){
-        //checking to make sure the room_number is not already given in the facility
-        boolean token = false;
-        for (Room room_object : rooms) {
-            if (room_object.getRoomNumber() == number) {
-                token = true;
-            }
-        }
-        return token;
-        //returns true when a room number already exists for that facility
     }
 
     public boolean bulldozeARoom(int number){ //need to know room number in order to delete that specific room
@@ -122,7 +95,6 @@ public class FacilityImpl implements Facility {
        }
         return token;
     }
-
 
     public void setStatus(String input_status) {
         this.status = input_status;
@@ -147,7 +119,6 @@ public class FacilityImpl implements Facility {
        // this.facilityUsage.listInspections(inspection_log);
     }
 
-
     public void createInspection(){
         //TODO - setters/getters implementation in main
         Inspection newInspection = new Inspection();
@@ -156,5 +127,16 @@ public class FacilityImpl implements Facility {
 
     public void addRoom(Room room){
         rooms.add(room);
+    }
+
+    public void getFacilityRoomsInfo(){
+        for (Room room:rooms){
+            System.out.println(
+                    "Room name: " + room.getRoomName() +
+                            "\nRoom number: " + room.getRoomNumber() +
+                            "\nRoom current capacity: " + room.getRoom_current_capacity() +
+                            "\nRoom maximum capacity: " + room.getRoomMaxCapacity()
+            );
+        }
     }
 }
