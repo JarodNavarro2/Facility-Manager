@@ -1,4 +1,4 @@
-package facilities;
+package FacilityManager.model.facility;
 
 public class Room {
 

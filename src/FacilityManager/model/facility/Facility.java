@@ -1,4 +1,8 @@
-package facilities;
+package FacilityManager.model.facility;
+import FacilityManager.model.maintenance.Maintenance;
+import FacilityManager.model.maintenance.Inspection;
+import FacilityManager.model.usage.Usage;
+import FacilityManager.model.usage.useFunction;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -17,7 +21,7 @@ public class Facility {
     public ArrayList<Room> rooms = new ArrayList<Room>();
     public ArrayList<Inspection> inspection_log = new ArrayList<Inspection>();
 
-    public Usage facilityUsage = new Usage();
+    public useFunction facilityUsage = new useFunction();
 
 
     public Usage getFacilityUsage(){
@@ -186,7 +190,6 @@ public class Facility {
 
 
     public void getFacilityInspections(){
-
         this.facilityUsage.listInspections(inspection_log);
     }
 

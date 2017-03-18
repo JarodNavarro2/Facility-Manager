@@ -1,4 +1,5 @@
-package facilities;
+package FacilityManager.model.maintenance;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;

@@ -1,4 +1,4 @@
-package facilities;
+package FacilityManager.model.maintenance;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
