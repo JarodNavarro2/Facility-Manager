@@ -1,14 +1,11 @@
 package FacilityManager.model.usage;
 import FacilityManager.model.facility.Facility;
 import FacilityManager.model.facility.Room;
-import FacilityManager.model.maintenance.Inspection;
+import FacilityManager.model.inspection.Inspection;
 
 
 import java.util.ArrayList;
 
-/**
- * Created by carlreider on 3/18/17.
- */
 public class useFunction extends Usage {
 
     public boolean vacateFacility(String facility_name, ArrayList<Facility> facility_list) {
