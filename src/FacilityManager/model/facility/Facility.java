@@ -1,6 +1,7 @@
 package FacilityManager.model.facility;
-import FacilityManager.model.maintenance.Maintenance;
+
 import FacilityManager.model.inspection.Inspection;
+import FacilityManager.model.maintenance.Maintenance;
 import FacilityManager.model.usage.Usage;
 import FacilityManager.model.usage.useFunction;
 
@@ -10,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Facility {
+public interface Facility {
     public String name;
     public int maximum_capacity;
     public int current_capacity;
@@ -104,13 +105,13 @@ public class Facility {
     public boolean bulldozeARoom(int number){ //need to know room number in order to delete that specific room
         //checking first based on room number
         boolean token = false;
-       for(int i = 0; i < this.rooms.size(); i ++){
-           if (this.rooms.get(i).getRoomNumber() == number){
-               this.rooms.remove(i);
-               token = true;
-               break;
-           }
-       }
+        for(int i = 0; i < this.rooms.size(); i ++){
+            if (this.rooms.get(i).getRoomNumber() == number){
+                this.rooms.remove(i);
+                token = true;
+                break;
+            }
+        }
         return token;
     }
 
@@ -165,8 +166,8 @@ public class Facility {
                     System.out.println("Ooops! Something went wrong.");
                     token = false;
                     break;
-                }
             }
+        }
         else { return false; }
 
         return token; //returns true when successful
