@@ -17,6 +17,30 @@ public class FacilityImpl implements Facility {
     public String status;
     public boolean occupancy;
 
+    private Room room;
+
+    public void setRoom(Room room){
+        this.room = room;
+    }
+
+    public Room getRoom(){
+        return this.room;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public ArrayList<Maintenance> maintenance_log = new ArrayList<Maintenance>();
     public ArrayList<Room> rooms = new ArrayList<Room>();
     public ArrayList<Inspection> inspection_log = new ArrayList<Inspection>();
@@ -28,21 +52,7 @@ public class FacilityImpl implements Facility {
         return this.facilityUsage;
     }
 
-    public Room getRoom(int room_number){
-        Room r = null;
-        int check = 0;
-        for (int i = 0; i < rooms.size(); i++){
-            if (rooms.get(i).getRoomNumber() == room_number){
-                r = rooms.get(i);
-                check++;
-                break;
-            }
-        }
-        if (check == 0){
-            System.out.println("OOPS! Unable to find the room in question.");
-        }
-        return r;
-    }
+
 
     public String getFacilityInformation(){
         return "Name: " + this.name + "\nMaximum Capacity: "+this.maximum_capacity + "\nCurrent Capacity: " + this.current_capacity + "\nStatus: " +
@@ -80,13 +90,12 @@ public class FacilityImpl implements Facility {
 
 
     public boolean createARoom(String name, int capacity, int max_capacity, int number) { //boolean return T if successful (only way to fail if room # check fails
-        if (!roomNumberCheck(number)) {
-            Room temp_room = new Room(name, capacity, max_capacity, number); //initializing
-            rooms.add(temp_room);
-            return true;
-        } else {
-            return false;
-        }
+        Room room = new Room();
+        room.setName(name);
+        room.setRoom_current_capacity(capacity);
+        room.setRoom_max_capacity(max_capacity);
+        room.setRoom_number(number);
+        return true;
     }
 
     public boolean roomNumberCheck(int number){
@@ -135,12 +144,17 @@ public class FacilityImpl implements Facility {
 
 
     public void getFacilityInspections(){
-        this.facilityUsage.listInspections(inspection_log);
+       // this.facilityUsage.listInspections(inspection_log);
     }
+
 
     public void createInspection(){
         //TODO - setters/getters implementation in main
         Inspection newInspection = new Inspection();
         inspection_log.add(newInspection);
+    }
+
+    public void addRoom(Room room){
+        rooms.add(room);
     }
 }

@@ -6,8 +6,16 @@ import FacilityManager.model.usage.Usage;
 import FacilityManager.model.usage.useFunction;
 
 public interface Facility {
+
+
     public Usage getFacilityUsage();
-    public Room getRoom(int room_number);
+
+    public void setRoom(Room room);
+    public Room getRoom();
+
+
+
+
     public String getFacilityInformation();
     public String getFacilityName();
     public void setFacilityName(String newName);
@@ -21,4 +29,5 @@ public interface Facility {
     public String getStatus();
     public void getFacilityInspections();
     public void createInspection();
+
 }

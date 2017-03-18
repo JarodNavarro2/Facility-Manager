@@ -1,7 +1,7 @@
 package FacilityManager.model.usage;
 import FacilityManager.model.facility.Facility;
 import FacilityManager.model.facility.Room;
-import FacilityManager.model.inspection.Inspection;
+import FacilityManager.model.inspection.*;
 
 
 import java.util.ArrayList;
@@ -12,6 +12,7 @@ public class useFunction extends Usage {
         facility_name = facility_name.toLowerCase();
         int facility_capacity;
         boolean success_token = false;
+        /*
         for (Facility object : facility_list) {
             if (object.getFacilityName().toLowerCase().matches(facility_name)) {
                 for (Room temp_room : object.rooms) {
@@ -35,15 +36,16 @@ public class useFunction extends Usage {
                 success_token = false;
             }
         }
+        */
         return success_token;
     }
 
 
-    public boolean listInspections(ArrayList<Inspection> inspectionList) {
+    public boolean listInspections(ArrayList<inspectionFunction> inspectionList) {
         int counter = 1;
         boolean success_token;
         if (inspectionList.size() > 0) {
-            for (Inspection inspection : inspectionList) {
+            for (inspectionFunction inspection : inspectionList) {
                 System.out.println("Listing information for inspection #" + counter + " out of " + inspectionList.size() + ".");
                 System.out.println("Inspector name: " + inspection.getInspection_inspector_name());
                 System.out.println("Inspection created on: " + inspection.getInspection_request_date() +
@@ -64,7 +66,7 @@ public class useFunction extends Usage {
 
 
     public void listActualUsage(Facility temp) {
-        ArrayList<Room> rooms = temp.rooms;
+        /*ArrayList<Room> rooms = temp.rooms;
         for(Room roo: rooms){
             System.out.println("Room Name: "  + roo.getRoomName());
             System.out.println("Room Max Capacity: " + roo.getRoomMaxCapacity());
@@ -72,6 +74,7 @@ public class useFunction extends Usage {
             System.out.println("Room Number: " + roo.getRoomNumber());
             System.out.println("Room Usage: " + (roo.getRoom_current_capacity()/(double)roo.getRoomMaxCapacity()*100));
         }
+        */
 
 
     }

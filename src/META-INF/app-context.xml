@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <description>Wiring the dependencies for the Facility Management Application.</description>
+
+
+    <context:component-scan base-package="src.FacilityManager" />
+
+    <bean id="facility1" class="FacilityManager.model.facility.FacilityImpl" scope="prototype">
+        <property name = "room" ref = "room" />
+            </bean>
+    <bean id="room" class="FacilityManager.model.facility.Room" scope = "prototype"></bean>
+
+
+
+</beans>

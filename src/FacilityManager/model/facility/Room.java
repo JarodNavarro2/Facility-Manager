@@ -7,26 +7,8 @@ public class Room {
     public int room_current_capacity;
     public int room_number;
 
-    public Room(String name, int capacity, int max_capacity, int rnumber) { //constructor
+   public void setName(String name){this.name = name;}
 
-        //NOTE: when a room is first being created, createRoom in main checks to make sure that capacity > max_capacity
-        this.name = name;
-        this.room_number = rnumber;
-        if (capacity == 0){ //user did NOT input a capacity
-            this.room_current_capacity = 0;
-        }
-        else {
-            this.room_current_capacity = capacity;
-        }
-        if (max_capacity == 0){ //user did NOT input a maximum capacity
-            this.room_max_capacity = 0;
-        }
-        else {
-            this.room_max_capacity = max_capacity;
-        }
-    }
-
-    public void setRoomName(String name) { this.name = name; }
 
     public boolean setRoom_current_capacity(int current_capacity) {
         //checking to make sure capacity has not reached maximum capacity
