@@ -17,39 +17,14 @@ public class Main {
 		facility1.setOccupancy(true);
 		facility1.getFacilityRoomsInfo();
 		System.out.println();
-		
-		facility1.getFacilityInformation();
+        facility1.getFacilityInformation();
 
-		/*
-		Room room1 = (Room) context.getBean("room");
-		System.out.println("Creating new room: Living Room.");
-		room1.setName("Living Room");
-		room1.setRoom_max_capacity(6);
-		room1.setRoom_current_capacity(2);
-		room1.setRoom_number(1);
-		facility1.setRoom(room1);
-
-		facility1.getFacilityRoomsInfo();
-		facility1.getFacilityInformation();
-		/*
-
-		Room room2 = (Room) context.getBean("room");
-		System.out.println("Creating new room: Kitchen.");
-		room2.setName("Kitchen");
-		room2.setRoom_max_capacity(4);
-		room2.setRoom_current_capacity(1);
-		room2.setRoom_number(2);
-		facility1.setRoom(room2);
-
-		System.out.println("\nListing facility information.");
-		facility1.getFacilityInformation();
-		System.out.println("\nListing facility rooms information.");
-		facility1.getFacilityRoomsInfo();
 
 		System.out.println("\nRemoving room #2, Kitchen.");
-		facility1.bulldozeARoom(2);
+		facility1.bulldozeARoom(1);
+		System.out.println("Printing Room Info");
 		facility1.getFacilityRoomsInfo();
-		*/
+        facility1.getFacilityInformation();
 
 
 
