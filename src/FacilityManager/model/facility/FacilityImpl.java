@@ -8,6 +8,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+
+import java.util.List;
+
 import java.util.Scanner;
 
 public class FacilityImpl implements Facility {
@@ -17,25 +20,17 @@ public class FacilityImpl implements Facility {
     public String status;
     public boolean occupancy;
     public ArrayList<Maintenance> maintenance_log = new ArrayList<Maintenance>();
-    public ArrayList<Room> rooms = new ArrayList<Room>();
+    public List<Room> rooms ;
     public ArrayList<Inspection> inspection_log = new ArrayList<Inspection>();
 
-    public void setRoom(Room room){
-        rooms.add(room);
+
+    // Specific methods for dependency injection
+    public void setRooms(List<Room> rooms){
+        this.rooms = rooms;
     }
 
-    public Room getRoom(int room_number){
-        Room temp_room = new RoomImpl();
-        //getting Room based on room_number within the facility
-        for (Room room : rooms){
-            if (room.getRoomNumber() == room_number){
-                temp_room = room;
-            }
-            else {
-                System.out.println("Room #" + room_number + " is not a valid room # for facility " + this.name);
-            }
-        }
-        return temp_room;
+    public List<Room> getRooms(){
+       return this.rooms;
     }
 
 

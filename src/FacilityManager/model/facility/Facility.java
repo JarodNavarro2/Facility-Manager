@@ -5,14 +5,15 @@ import FacilityManager.model.maintenance.Maintenance;
 import FacilityManager.model.usage.Usage;
 import FacilityManager.model.usage.useFunction;
 
+import java.util.List;
+
 public interface Facility {
 
 
     public Usage getFacilityUsage(); //TODO:
 
-    public void setRoom(Room room);
-
-    public Room getRoom(int room_number); //obtains room object based on specific room_number
+    public void setRooms(List<Room> rooms);
+    public List<Room> getRooms(); //obtains room object based on specific room_number
 
     public String getFacilityName(); //works -- DK 03.18
     public void setFacilityName(String newName); //works -- DK 03.18

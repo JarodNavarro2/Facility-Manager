@@ -10,10 +10,27 @@
 
     <context:component-scan base-package="src.FacilityManager" />
 
-    <bean id="room" class="FacilityManager.model.facility.RoomImpl" scope ="prototype"></bean>
+    <bean id="room" class="FacilityManager.model.facility.RoomImpl" scope ="prototype">
+        <property name="name">
+            <value>Testing1</value>
+        </property>
+        <property name="room_max_capacity">
+            <value>100</value>
+        </property>
+        <property name="room_current_capacity">
+            <value>50</value>
+        </property>
+        <property name="room_number">
+            <value>1</value>
+        </property>
+    </bean>
 
     <bean id="facility1" class="FacilityManager.model.facility.FacilityImpl" scope="prototype">
-        <property name = "room" ref = "room" />
+        <property name = "rooms" >
+           <list>
+               <ref bean = "room" ></ref>
+           </list>
+        </property>
             </bean>
 
 
