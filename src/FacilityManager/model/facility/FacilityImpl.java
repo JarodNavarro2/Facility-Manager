@@ -114,7 +114,9 @@ public class FacilityImpl implements Facility {
         return this.status;
     }
 
-
+    public void setOccupancy(boolean occupancy){
+        this.occupancy = occupancy;
+    }
     public void getFacilityInspections(){
        // this.facilityUsage.listInspections(inspection_log);
     }

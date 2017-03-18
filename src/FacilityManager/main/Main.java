@@ -13,9 +13,12 @@ public class Main {
 
 		Facility facility1 = (Facility) context.getBean("facility1");
 		facility1.setFacilityName("House");
+		facility1.setStatus("In Use");
+		facility1.setOccupancy(true);
 
 
 		Room room1 = (Room) context.getBean("room");
+		System.out.println("Creating new room: Living Room.");
 		room1.setName("Living Room");
 		room1.setRoom_max_capacity(6);
 		room1.setRoom_current_capacity(2);
@@ -23,13 +26,20 @@ public class Main {
 		facility1.setRoom(room1);
 
 		Room room2 = (Room) context.getBean("room");
+		System.out.println("Creating new room: Kitchen.");
 		room2.setName("Kitchen");
 		room2.setRoom_max_capacity(4);
 		room2.setRoom_current_capacity(1);
 		room2.setRoom_number(2);
 		facility1.setRoom(room2);
 
+		System.out.println("\nListing facility information.");
 		facility1.getFacilityInformation();
+		System.out.println("\nListing facility rooms information.");
+		facility1.getFacilityRoomsInfo();
+
+		System.out.println("\nRemoving room #2, Kitchen.");
+		facility1.bulldozeARoom(2);
 		facility1.getFacilityRoomsInfo();
 
 
