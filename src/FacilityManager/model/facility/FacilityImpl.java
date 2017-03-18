@@ -1,6 +1,7 @@
 package FacilityManager.model.facility;
 import FacilityManager.model.inspection.Inspection;
 import FacilityManager.model.maintenance.Maintenance;
+import FacilityManager.model.maintenance.MaintenanceImpl;
 import FacilityManager.model.usage.Usage;
 import FacilityManager.model.usage.useFunction;
 
@@ -17,6 +18,23 @@ public class FacilityImpl implements Facility {
     public ArrayList<Maintenance> maintenance_log = new ArrayList<Maintenance>();
     public List<Room> rooms ;
     public Inspection inspection;
+    public Maintenance currentMaintenance;
+
+
+
+    public void setMaintenance(Maintenance main){
+        this.currentMaintenance = main;
+        this.maintenance_log.add(main);
+    }
+
+    public Maintenance getMaintenance(){
+        return this.currentMaintenance;
+    }
+
+    public ArrayList<Maintenance> getMaintenanceLog(){
+        return this.maintenance_log;
+    }
+
 
 
     // Specific methods for dependency injection
@@ -36,7 +54,7 @@ public class FacilityImpl implements Facility {
 
 
 
-
+    //@TODO Need to inject USAGE into facility
     public useFunction facilityUsage = new useFunction();
 
 

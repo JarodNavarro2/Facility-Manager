@@ -1,8 +1,10 @@
 package FacilityManager.model.facility;
 
 import FacilityManager.model.inspection.Inspection;
+import FacilityManager.model.maintenance.Maintenance;
 import FacilityManager.model.usage.Usage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface Facility {
@@ -30,5 +32,12 @@ public interface Facility {
     public void getFacilityRoomsInfo(); //works -- DK 03.18
     public int getMaxCapacity(); //works -- DK 03.18
     public int getCurrentCapacity(); //works -- DK 03.18
+
+    public void setMaintenance(Maintenance main);
+
+    public Maintenance getMaintenance();
+
+    public ArrayList<Maintenance> getMaintenanceLog();
+
 
 }
