@@ -1,9 +1,11 @@
 package FacilityManager.model.usage;
 import FacilityManager.model.facility.Facility;
 import FacilityManager.model.inspection.*;
+import FacilityManager.model.facility.Room;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class useFunction extends Usage {
 
@@ -11,10 +13,10 @@ public class useFunction extends Usage {
         facility_name = facility_name.toLowerCase();
         int facility_capacity;
         boolean success_token = false;
-        /*
+        
         for (Facility object : facility_list) {
             if (object.getFacilityName().toLowerCase().matches(facility_name)) {
-                for (Room temp_room : object.rooms) {
+                for (Room temp_room : object.getRooms()) {
                     if (!temp_room.setRoom_current_capacity(0)) {
                         System.out.println("Unable to vacate. Someone stuck in room "
                                 + temp_room.getRoomName() + ".");
@@ -35,7 +37,7 @@ public class useFunction extends Usage {
                 success_token = false;
             }
         }
-        */
+        
         return success_token;
     }
 
@@ -74,7 +76,15 @@ public class useFunction extends Usage {
             System.out.println("Room Usage: " + (roo.getRoom_current_capacity()/(double)roo.getRoomMaxCapacity()*100));
         }
         */
-
+    	List<Room> rooms = temp.getRooms();
+    		for (Room roo: rooms)
+    		{
+    			System.out.println("Room name: " + roo.getRoomName());
+    			System.out.println("Room Max Capacity :" + roo.getRoomMaxCapacity());
+    			System.out.println("Room Current Capacity: "+ roo.getRoom_current_capacity());
+    			System.out.println("Room Number: "+ roo.getRoomNumber());
+    			System.out.println("Room Usage: " + roo.getRoom_current_capacity() / (double) roo.getRoomMaxCapacity() * 100);
+    		}
 
     }
     public double calcUsageRate(Facility facility) {
