@@ -10,18 +10,33 @@
 
     <context:component-scan base-package="src.FacilityManager" />
 
-    <bean id="room" class="FacilityManager.model.facility.RoomImpl" scope ="prototype">
+    <bean id="room1" class="FacilityManager.model.facility.RoomImpl" scope ="prototype">
         <property name="name">
-            <value>Testing1</value>
+            <value>Living Room</value>
         </property>
         <property name="room_max_capacity">
-            <value>100</value>
+            <value>12</value>
         </property>
         <property name="room_current_capacity">
-            <value>50</value>
+            <value>1</value>
         </property>
         <property name="room_number">
             <value>1</value>
+        </property>
+    </bean>
+
+    <bean id="room2" class="FacilityManager.model.facility.RoomImpl" scope ="prototype">
+        <property name="name">
+            <value>Kitchen</value>
+        </property>
+        <property name="room_max_capacity">
+            <value>6</value>
+        </property>
+        <property name="room_current_capacity">
+            <value>2</value>
+        </property>
+        <property name="room_number">
+            <value>2</value>
         </property>
     </bean>
 
@@ -34,7 +49,8 @@
     <bean id="facility1" class="FacilityManager.model.facility.FacilityImpl" scope="prototype">
         <property name = "rooms" >
            <list>
-               <ref bean = "room" ></ref>
+               <ref bean = "room1" ></ref>
+               <ref bean = "room2" ></ref>
            </list>
         </property>
         <property name="inspections" ref = "inspections">

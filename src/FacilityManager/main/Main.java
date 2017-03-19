@@ -25,15 +25,15 @@ public class Main {
 		facility1.setFacilityName("House");
 		facility1.setStatus("In Use");
 		facility1.setOccupancy(true);
+
+		System.out.println("\nListing room information for the facility " + facility1.getFacilityName());
 		facility1.getFacilityRoomsInfo();
-		System.out.println();
+		System.out.println("\nListing facility information for " + facility1.getFacilityName());
         facility1.getFacilityInformation();
 
-
-
-		System.out.println("\nRemoving room #2, Kitchen.");
-		facility1.bulldozeARoom(1);
-		System.out.println("Printing Room Info");
+		System.out.println("\nRemoving room #2, " + facility1.getRooms().get(1).getRoomName());
+		facility1.bulldozeARoom(1); //TODO - not working?? though room #1 is properly targetted and we get a "true" return token of success
+		System.out.println("\nListing room information for the facility " + facility1.getFacilityName());
 		facility1.getFacilityRoomsInfo();
         facility1.getFacilityInformation();
         System.out.println();
