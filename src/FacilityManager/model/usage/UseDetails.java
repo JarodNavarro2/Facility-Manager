@@ -1,15 +1,17 @@
 package FacilityManager.model.usage;
-import FacilityManager.model.facility.Facility;
-import FacilityManager.model.inspection.*;
-import FacilityManager.model.facility.Room;
-
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class useFunction extends Usage {
+import FacilityManager.model.facility.Facility;
+import FacilityManager.model.facility.Room;
+import FacilityManager.model.inspection.InspectionImpl;
+import FacilityManager.model.usage.Use;
+import FacilityManager.model.usage.UseImpl;
 
-    public boolean vacateFacility(String facility_name, ArrayList<Facility> facility_list) {
+public class UseDetails extends UseImpl
+{
+	public boolean vacateFacility(String facility_name, ArrayList<Facility> facility_list) {
         facility_name = facility_name.toLowerCase();
         int facility_capacity;
         boolean success_token = false;
@@ -26,7 +28,7 @@ public class useFunction extends Usage {
                 if (facility_capacity == 0) {
                     success_token = true;
                     System.out.println("Everyone is evacuated");
-                    this.usage = "Vacant";
+                    this.use = "Vacant";
                     break;
                 } else {
                     success_token = false;
