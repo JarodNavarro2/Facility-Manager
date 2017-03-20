@@ -7,8 +7,8 @@ import java.time.format.DateTimeFormatter;
 ///Class made to handle all maintenance requests and regards
 public class MaintenanceImpl implements Maintenance
 {
-	public static ArrayList<MaintenanceImpl> maintain = new ArrayList<MaintenanceImpl>(); ///Storing the approved MaintenanceImpl
-	public static ArrayList<MaintenanceImpl> maintain_request = new ArrayList<MaintenanceImpl>(); ///Storing the MaintenanceImpl requests
+	public static ArrayList<Maintenance> maintain = new ArrayList<Maintenance>(); ///Storing the approved MaintenanceImpl
+	public static ArrayList<Maintenance> maintain_request = new ArrayList<Maintenance>(); ///Storing the MaintenanceImpl requests
 	public int schedule_time; ///The time for maintenance
 	public boolean request_approval;///Boolean factor regarding if a request is approved or not
 	public boolean problem_approval;///Boolean factor regarding if the problem rate is approved or not
@@ -20,11 +20,22 @@ public class MaintenanceImpl implements Maintenance
 	public enum status { initiated, in_progress, complete }; //status of a maintenance order options
 	public status request_status; ///Requesting the current status of the maintenance
 	public LocalDateTime request_initiation_time; ///The start timer of a request
-	public LocalDateTime request_completion_time;///The end timer of a request approval 
+	public LocalDateTime request_completion_time;///The end timer of a request approval
+	public maintenanceImplFunction maintenanceFunction;
 
-	public MaintenanceImpl getMaintenanceRequest(String name) ///Getting the specific maintenance request
+
+	public void setMaintenanceFunction(maintenanceImplFunction main){
+		this.maintenanceFunction = main;
+
+	}
+	public maintenanceImplFunction getMaintenanceImplFunction(){
+		return this.maintenanceFunction;
+
+	}
+
+	public Maintenance getMaintenanceRequest(String name) ///Getting the specific maintenance request
 	{
-		MaintenanceImpl main = null;
+		Maintenance main = null;
 		name = name.toLowerCase();
 		int check = 0;
 		for(int i = 0; i < this.maintain_request.size(); i ++){

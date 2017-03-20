@@ -4,11 +4,11 @@ package FacilityManager.model.maintenance;
 import java.util.ArrayList;
 
 public class maintenanceImplFunction extends MaintenanceImpl {
-    public void makeFacilityRequest(ArrayList<MaintenanceImpl> main)///Creating a facility request, and adding it to the request array
+    public void makeFacilityRequest(ArrayList<Maintenance> main)///Creating a facility request, and adding it to the request array
     {
         maintain_request.addAll(main);
     }
-    public void addMaintenance(ArrayList<MaintenanceImpl> main)///Adding maintenance ONLY if the request is approved
+    public void addMaintenance(ArrayList<Maintenance> main)///Adding maintenance ONLY if the request is approved
     {
         if (request_approval == true && problem_approval == true && money_approval == true)
         {
@@ -20,7 +20,7 @@ public class maintenanceImplFunction extends MaintenanceImpl {
             System.out.println("MaintenanceImpl has not been added");
         }
     }
-    public void calcMaintenanceCostForFacility(MaintenanceImpl main)///Calculating the cost. Passing or failing based on result
+    public void calcMaintenanceCostForFacility(Maintenance main)///Calculating the cost. Passing or failing based on result
     {
         int cost = main.getTotal_cost();
         int budg = main.getTotal_budget();
@@ -36,7 +36,7 @@ public class maintenanceImplFunction extends MaintenanceImpl {
             main.setMoney_approval(true);
         }
     }
-    public int calcProblemRateForFacility(int current_capacity, int max_capacity, MaintenanceImpl main)///Calculating the problem rate. Passing or failing based on result
+    public int calcProblemRateForFacility(int current_capacity, int max_capacity, Maintenance main)///Calculating the problem rate. Passing or failing based on result
     {
         double problem = 0;
         if (current_capacity == 0)
@@ -77,31 +77,31 @@ public class maintenanceImplFunction extends MaintenanceImpl {
     }
     public void listMaintRequests()///Listing all requests
     {
-        for (MaintenanceImpl main : this.maintain_request)
+        for (Maintenance main : this.maintain_request)
         {
             System.out.println("Request Information");
-            System.out.println("MaintenanceImpl name: " + main.maintenance_name);
-            System.out.println("MaintenanceImpl time: "+main.schedule_time);
-            System.out.println("MaintenanceImpl Budget: "+ main.total_budget + ". MaintenanceImpl Cost: "+ main.total_cost);
-            System.out.println("MaintenanceImpl Reason: "+ main.problems);
+            System.out.println("MaintenanceImpl name: " + main.getMaintenance_name());
+            System.out.println("MaintenanceImpl time: "+main.getSchedule_time());
+            System.out.println("MaintenanceImpl Budget: "+ main.getTotal_budget() + ". MaintenanceImpl Cost: "+ main.getTotal_cost());
+            System.out.println("MaintenanceImpl Reason: "+ main.getProblem());
         }
     }
     public void listMaintenance()///Listing all MaintenanceImpl
     {
-        for (MaintenanceImpl main : this.maintain)
+        for (Maintenance main : this.maintain)
         {
-            System.out.println("MaintenanceImpl name: " + main.maintenance_name);
-            System.out.println("MaintenanceImpl time: "+main.schedule_time);
-            System.out.println("MaintenanceImpl Budget: "+ main.total_budget + ". MaintenanceImpl Cost: "+ main.total_cost);
-            System.out.println("MaintenanceImpl Reason: " + main.problems);
+            System.out.println("MaintenanceImpl name: " + main.getMaintenance_name());
+            System.out.println("MaintenanceImpl time: "+main.getSchedule_time());
+            System.out.println("MaintenanceImpl Budget: "+ main.getTotal_budget() + ". MaintenanceImpl Cost: "+ main.getTotal_cost());
+            System.out.println("MaintenanceImpl Reason: " + main.getProblem());
         }
     }
     public void listFacilityProblems()///Listing all problems
     {
-        for (MaintenanceImpl main : this.maintain)
+        for (Maintenance main : this.maintain)
         {
-            System.out.println("MaintenanceImpl name: " + main.maintenance_name);
-            System.out.println("Problem: "+ main.problems);
+            System.out.println("MaintenanceImpl name: " + main.getMaintenance_name());
+            System.out.println("Problem: "+ main.getProblem());
         }
     }
 

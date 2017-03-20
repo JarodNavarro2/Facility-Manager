@@ -2,8 +2,8 @@ package FacilityManager.model.facility;
 import FacilityManager.model.inspection.Inspection;
 import FacilityManager.model.maintenance.Maintenance;
 import FacilityManager.model.maintenance.MaintenanceImpl;
-import FacilityManager.model.usage.Usage;
-import FacilityManager.model.usage.UsageImpl;
+//import FacilityManager.model.usage.Usage;
+//import FacilityManager.model.usage.UsageImpl;
 
 import java.util.ArrayList;
 
@@ -55,13 +55,13 @@ public class FacilityImpl implements Facility {
 
 
     //@TODO Need to inject USAGE into facility
-    public UsageImpl facilityUsage = new UsageImpl();
+    /*public UsageImpl facilityUsage = new UsageImpl();
 
 
     public Usage getFacilityUsage(){
         return this.facilityUsage;
     }
-
+*/
 
 
     public void getFacilityInformation(){

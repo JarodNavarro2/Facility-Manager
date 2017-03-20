@@ -4,6 +4,7 @@ import FacilityManager.model.facility.Room;
 import FacilityManager.model.facility.FacilityImpl;
 import FacilityManager.model.inspection.Inspection;
 import FacilityManager.model.maintenance.Maintenance;
+import FacilityManager.model.maintenance.maintenanceImplFunction;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.cglib.core.Local;
 import org.springframework.context.ApplicationContext;
@@ -55,6 +56,17 @@ public class Main {
 		maintenance1.setMainenanceName("Test Maintenance");
 		maintenance1.setProblem("This is an issue");
 
+		//Added another injection to Maintence. We inject the maintenance functions into the implementation so we can use those functions
+		//This function was injected into the maintenance class via Spring
+		maintenanceImplFunction functions = maintenance1.getMaintenanceImplFunction();
+
+
+		//We can then call functions on maintenance using this injection
+		functions.calcMaintenanceCostForFacility(maintenance1);
+		
+
+
+		System.out.println("Maintenance Log Below");
 		ArrayList<Maintenance> arL = facility1.getMaintenanceLog();
 		for(Maintenance main: arL){
 			System.out.println(main.getMaintenance_name());

@@ -6,7 +6,11 @@ import java.time.format.DateTimeFormatter;
 
 public interface Maintenance {
 
-    public MaintenanceImpl getMaintenanceRequest(String name);
+
+    public void setMaintenanceFunction(maintenanceImplFunction main);
+    public maintenanceImplFunction getMaintenanceImplFunction();
+
+    public Maintenance getMaintenanceRequest(String name);
     public int getSchedule_time();
     public void setSchedule_time(int time);
     public int getTotal_cost();
