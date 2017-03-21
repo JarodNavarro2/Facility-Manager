@@ -14,7 +14,27 @@ public class UseImpl implements Use
     public String getUse(){ return this.use;}
 
     public void vacateFacility(Facility facility) {
-     
+        if (facility.getCurrentCapacity() <= 0){
+            System.out.println("Facility is already vacated.");
+        }
+        else {
+            for (Room room : facility.getRooms()){
+                if (room.getRoom_current_capacity() > 0){
+                    System.out.println("Room \"" + room.getRoomName() + "\" has " + room.getRoom_current_capacity() + " people in there.");
+                    System.out.println("FIRE ALARM! Getting everyone out.");
+                    room.setRoom_current_capacity(0);
+                    if (room.getRoom_current_capacity() != 0){
+                        System.out.println("Oops. Something went wrong. Someone is stuck in room " + room.getRoomName());
+                    }
+                    else {
+                        System.out.println("Room \"" + room.getRoomName() + "\" has been cleared.");
+                    }
+                }
+            }
+        }
+        if (facility.getCurrentCapacity() == 0){
+            System.out.println("Facility has been vacated.");
+        }
     }
 
 
