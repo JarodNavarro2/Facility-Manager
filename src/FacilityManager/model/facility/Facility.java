@@ -2,7 +2,7 @@ package FacilityManager.model.facility;
 
 import FacilityManager.model.inspection.Inspection;
 import FacilityManager.model.maintenance.Maintenance;
-//import FacilityManager.model.usage.Usage;
+import FacilityManager.model.usage.Use;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,8 @@ import java.util.List;
 public interface Facility {
 
 
-    //public Usage getFacilityUsage(); //TODO:
+    public Use getFacilityUsage();
+    public void setUsage(Use usage);
 
     public void setRooms(List<Room> rooms);
     public List<Room> getRooms(); //obtains room object based on specific room_number

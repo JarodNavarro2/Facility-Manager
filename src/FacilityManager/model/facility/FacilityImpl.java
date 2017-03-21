@@ -1,7 +1,9 @@
 package FacilityManager.model.facility;
 import FacilityManager.model.inspection.Inspection;
+import FacilityManager.model.inspection.InspectionImpl;
 import FacilityManager.model.maintenance.Maintenance;
 import FacilityManager.model.maintenance.MaintenanceImpl;
+import FacilityManager.model.usage.Use;
 //import FacilityManager.model.usage.Usage;
 //import FacilityManager.model.usage.UsageImpl;
 
@@ -19,8 +21,11 @@ public class FacilityImpl implements Facility {
     public List<Room> rooms ;
     public Inspection inspection;
     public Maintenance currentMaintenance;
+    public Use use;
 
 
+    public Use getFacilityUsage(){return this.use;}
+    public void setUsage(Use usage){this.use = usage;}
 
     public void setMaintenance(Maintenance main){
         this.currentMaintenance = main;
@@ -50,18 +55,16 @@ public class FacilityImpl implements Facility {
 
     public Inspection getInspection(){return this.inspection;}
 
-
-
-
-
-    //@TODO Need to inject USAGE into facility
-    /*public UsageImpl facilityUsage = new UsageImpl();
-
-
-    public Usage getFacilityUsage(){
-        return this.facilityUsage;
+    public void listInspections() {
+        System.out.println("Inspector name: " + this.inspection.getInspection_inspector_name());
+        System.out.println("InspectionImpl created on: " + this.inspection.getInspection_request_date() +
+                " " + this.inspection.getInspection_request_time());
+        System.out.println("InspectionImpl scheduled for: " + this.inspection.getInspection_date() +
+                " " + this.inspection.getInspection_time());
+        System.out.println("InspectionImpl reason: " + this.inspection.getInspection_issue());
+        System.out.println("InspectionImpl passed (true/false): " + this.inspection.getInspection_passed().toString());
+        System.out.println("Facility in use?: "+ this.inspection.isInUseDuringInterval());
     }
-*/
 
 
     public void getFacilityInformation(){

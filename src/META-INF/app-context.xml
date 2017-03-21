@@ -43,6 +43,9 @@
     <bean id = "maintenanceFunction" class = "FacilityManager.model.maintenance.maintenanceImplFunction" scope="prototype">
     </bean>
 
+    <bean id = "usage1" class = "FacilityManager.model.usage.UseImpl" scope="prototype">
+    </bean>
+
 
     <bean id="inspections" class = "FacilityManager.model.inspection.InspectionImpl" scope="prototype"></bean>
 
@@ -64,6 +67,8 @@
         <property name="inspections" ref = "inspections">
         </property>
         <property name="maintenance" ref = "maintenance">
+        </property>
+        <property name="usage" ref = "usage1">
         </property>
 
             </bean>
