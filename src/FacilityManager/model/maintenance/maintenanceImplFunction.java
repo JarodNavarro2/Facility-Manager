@@ -4,6 +4,8 @@ package FacilityManager.model.maintenance;
 import java.util.ArrayList;
 
 public class maintenanceImplFunction extends MaintenanceImpl {
+
+
     public void makeFacilityRequest(ArrayList<Maintenance> main)///Creating a facility request, and adding it to the request array
     {
         maintain_request.addAll(main);
@@ -86,15 +88,14 @@ public class maintenanceImplFunction extends MaintenanceImpl {
             System.out.println("MaintenanceImpl Reason: "+ main.getProblem());
         }
     }
-    public void listMaintenance()///Listing all MaintenanceImpl
+    public void listMaintenance(Maintenance main)///Listing all MaintenanceImpl
     {
-        for (Maintenance main : this.maintain)
-        {
+
             System.out.println("MaintenanceImpl name: " + main.getMaintenance_name());
             System.out.println("MaintenanceImpl time: "+main.getSchedule_time());
             System.out.println("MaintenanceImpl Budget: "+ main.getTotal_budget() + ". MaintenanceImpl Cost: "+ main.getTotal_cost());
             System.out.println("MaintenanceImpl Reason: " + main.getProblem());
-        }
+
     }
     public void listFacilityProblems()///Listing all problems
     {

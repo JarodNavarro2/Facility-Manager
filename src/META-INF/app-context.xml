@@ -45,6 +45,7 @@
 
 
     <bean id="inspections" class = "FacilityManager.model.inspection.InspectionImpl" scope="prototype"></bean>
+
     <bean id="maintenance" class = "FacilityManager.model.maintenance.MaintenanceImpl" scope="prototype">
         <property name="maintenanceFunction">
         <ref bean = "maintenanceFunction" ></ref>

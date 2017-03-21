@@ -64,7 +64,9 @@ public class Main {
 
 		//We can then call functions on maintenance using this injection
 		functions.calcMaintenanceCostForFacility(maintenance1);
-		
+		System.out.println("Maintenance Calc Problem Rate");
+		functions.calcProblemRateForFacility(facility1.getCurrentCapacity(), facility1.getMaxCapacity(), maintenance1);
+		functions.listMaintenance(maintenance1);
 
 
 		System.out.println("Maintenance Log Below");
@@ -72,10 +74,6 @@ public class Main {
 		for(Maintenance main: arL){
 			System.out.println(main.getMaintenance_name());
 		}
-
-
-
-
 
 
 	}
