@@ -4,8 +4,13 @@ import FacilityManager.model.facility.Room;
 import FacilityManager.model.facility.FacilityImpl;
 import FacilityManager.model.inspection.Inspection;
 import FacilityManager.model.maintenance.Maintenance;
+<<<<<<< HEAD
 import FacilityManager.model.maintenance.MaintenanceImpl;
 
+=======
+import FacilityManager.model.maintenance.maintenanceImplFunction;
+import FacilityManager.model.usage.Use;
+>>>>>>> bfd67704d199bfd739f0428991d1db4dcda84e27
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.cglib.core.Local;
 import org.springframework.context.ApplicationContext;
@@ -80,6 +85,14 @@ public class Main {
 		for(Maintenance main: arL){
 			System.out.println(main.getMaintenance_name());
 		}
+
+		Use usage1 = (Use) context.getBean("usage1");
+		usage1.setUse("This facility is currently in use");
+		facility1.setUsage(usage1);
+		System.out.println("This is the usage");
+		System.out.println(facility1.getFacilityUsage().getUse());
+
+
 
 
 	}
