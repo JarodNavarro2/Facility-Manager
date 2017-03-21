@@ -7,8 +7,8 @@ import java.time.format.DateTimeFormatter;
 public interface Maintenance {
 
 
-    public void setMaintenanceFunction(maintenanceImplFunction main);
-    public maintenanceImplFunction getMaintenanceImplFunction();
+    public void setMaintenanceFunction(MaintenanceImpl main);
+    public MaintenanceImpl getMaintenanceImplFunction();
 
     public Maintenance getMaintenanceRequest(String name);
     public int getSchedule_time();

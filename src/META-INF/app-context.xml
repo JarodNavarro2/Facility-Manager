@@ -40,7 +40,7 @@
         </property>
     </bean>
 
-    <bean id = "maintenanceFunction" class = "FacilityManager.model.maintenance.maintenanceImplFunction" scope="prototype">
+    <bean id = "maintenanceFunction" class = "FacilityManager.model.maintenance.MaintenanceImpl" scope="prototype">
     </bean>
 
 
